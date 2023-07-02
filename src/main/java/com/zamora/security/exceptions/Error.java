@@ -14,6 +14,6 @@ public class Error {
     private String mensaje;
     private boolean detalles;
 
-    public Error(LocalDate now, String message, String description) {
+    public Error() {
     }
 }
