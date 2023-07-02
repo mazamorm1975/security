@@ -6,6 +6,7 @@ import com.zamora.security.config.JwtService;
 import com.zamora.security.config.RegisterRequest;
 import com.zamora.security.repository.UserRepository;
 import com.zamora.security.service.AuthenticationService;
+import com.zamora.security.user.Product;
 import com.zamora.security.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/Authenticate")
-    public ResponseEntity<AuthenticationResponse> generarToken(@RequestBody AuthenticationRequest userAuthenticate) throws Exception {
+    public ResponseEntity<AuthenticationResponse> generarToken(@RequestBody AuthenticationRequest userAuthenticate) {
 
         AuthenticationResponse authenticateUser = authenticationService.authenticar(userAuthenticate);
         return new ResponseEntity<AuthenticationResponse>(authenticateUser, HttpStatus.CREATED);

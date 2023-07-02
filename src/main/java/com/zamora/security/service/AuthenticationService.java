@@ -58,7 +58,4 @@ public class AuthenticationService {
                .token(jwt)
                .build();
     }
-
-
-
 }

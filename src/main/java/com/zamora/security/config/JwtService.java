@@ -1,15 +1,11 @@
 package com.zamora.security.config;
 
-import com.zamora.security.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.security.Key;
 import java.util.Date;
@@ -19,7 +15,10 @@ import java.util.function.Function;
 
 @Service
 public class JwtService {
+
     private static final String SECRET_KEY = "88a0a7569cd65913e034dd811f2007b595d98c97b9d8b02debe8e7fd466c0aa9";
+
+
 
     public String extractUsername(String token){
         return extractClaim(token, Claims::getSubject);
@@ -84,4 +83,6 @@ public class JwtService {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
          return Keys.hmacShaKeyFor(keyBytes);
     }
+
+
 }
